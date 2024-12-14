@@ -19,7 +19,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const Localstrategy = require("passport-local");
 const User = require("./models/user.js");
-
+const Listing = require("./models/listing");
 app.use(cookieParser("secreat"));
 
 //routes that are created separately
@@ -38,7 +38,7 @@ app.use(express.urlencoded({ extended: true })); //for data parsing
 const atlasDbUrl = process.env.ATLASDB_URL;
 async function main() {
   try {
-    await mongoose.connect(atlasDbUrl);
+    await mongoose.connect("mongodb://127.0.0.1:27017/stayease");
     console.log("connected to db sucessfully");
   } catch (err) {
     console.log(err);
@@ -48,7 +48,7 @@ async function main() {
 main();
 
 let store = MongoStore.create({
-  mongoUrl: atlasDbUrl,
+  mongoUrl: "mongodb://127.0.0.1:27017/stayease",
   crypto: {
     secret: process.env.SECRET, //we can specify normally also but it adds some encription
   },
@@ -82,10 +82,19 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
+  // console.log("heyyyyyy");
+  // console.log("res.locals.curUser in GET /:", req.user); // Log the value
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");
   res.locals.curUser = req.user;
   next();
+});
+
+app.get("/filter", async (req, res) => {
+  let { Category } = req.query;
+  console.log(req.query);
+  let allListings = await Listing.find();
+  res.render("listing/filter.ejs", { allListings, Category });
 });
 
 app.use("/listings", listingRouter); //these two routes restructed and all routes are separated at another files (routes) to look code more clean

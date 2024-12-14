@@ -3,10 +3,19 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  /* height: 100%; */
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.main {
+  flex: 1;
 }
 
-.container {
-  flex: 1;
+@media (width: 390px) {
+  .navbar {
+    background-color: black !important;
+  }
 }
 
 .navbar {
@@ -53,6 +62,8 @@ body {
   text-align: center;
 }
 
+/* 
+listings */
 .listingCard {
   border: none !important;
   margin-bottom: 2rem;
@@ -112,4 +123,29 @@ body {
 #map {
   height: 200px;
   width: 300px;
+}
+
+/* dropdown to select category */
+
+select {
+  font-family: Arial, sans-serif;
+  font-size: 0.8rem;
+  padding: 7px 60px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+  transition: all 0.3s ease;
+}
+
+select:hover {
+  border-color: #888;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+option {
+  padding: 10px;
 }

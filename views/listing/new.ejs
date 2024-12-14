@@ -10,17 +10,29 @@
       class="needs-validation"
       enctype="multipart/form-data"
     >
-      <div class="mb-3">
-        <label for="title" class="form-label">Title</label>
-        <input
-          type="text"
-          placeholder="Enter Title"
-          name="listing[title]"
-          class="form-control"
-          required
-        />
-        <div class="valid-feedback">Title looks good</div>
-        <div class="invalid-feedback">Title should be valid</div>
+      <div class="row">
+        <div class="mb-3 col-8">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            placeholder="Enter Title"
+            name="listing[title]"
+            class="form-control"
+            required
+          />
+          <div class="valid-feedback">Title looks good</div>
+          <div class="invalid-feedback">Title should be valid</div>
+        </div>
+
+        <div class="mb-3 col-4">
+          <label class="form-label" for="Category">Select Category</label>
+          <select name="listing[Category]" id="Category" class="dropdown">
+            <option value="beachs">Beach</option>
+            <option value="mountains">Mountains</option>
+            <option value="iconic cities">Iconic City</option>
+          </select>
+        </div>
+
         <!-- -->
       </div>
 
@@ -39,8 +51,12 @@
       </div>
       <div class="mb-3">
         <label for="image" class="form-label">Uplode Image</label>
-        <input type="file" class="form-control" name="listing[image]" />
-        required
+        <input
+          type="file"
+          class="form-control"
+          name="listing[image]"
+          required
+        />
       </div>
       <div class="row">
         <div class="mb-3 col-md-4">

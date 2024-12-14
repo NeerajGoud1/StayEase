@@ -41,17 +41,17 @@ const ListingSchema = new Schema({
   },
   Category: {
     type: String, //[String] to assign multiple values
-    enum: [
-      "mountains",
-      "rooms",
-      "trending",
-      "iconic city",
-      "beach",
-      "amazing pool",
-      "camping",
-      "farm",
-      "arctic",
-    ],
+    // enum: [
+    //   "mountains",
+    //   "rooms",
+    //   "trending",
+    //   "iconic city",
+    //   "beach",
+    //   "amazing pool",
+    //   "camping",
+    //   "farm",
+    //   "arctic",
+    // ],
   },
 });
 
