@@ -38,7 +38,7 @@ app.use(express.urlencoded({ extended: true })); //for data parsing
 const atlasDbUrl = process.env.ATLASDB_URL;
 async function main() {
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/stayease");
+    await mongoose.connect(atlasDbUrl);
     console.log("connected to db sucessfully");
   } catch (err) {
     console.log(err);
@@ -48,7 +48,7 @@ async function main() {
 main();
 
 let store = MongoStore.create({
-  mongoUrl: "mongodb://127.0.0.1:27017/stayease",
+  mongoUrl: atlasDbUrl,
   crypto: {
     secret: process.env.SECRET, //we can specify normally also but it adds some encription
   },
