@@ -1,7 +1,7 @@
 <% layout("/layouts/boilerplate") %>
 
 <body>
-  <div class="row offset-2 col-8">
+  <div class="row col-10 col-md-8 offset-1 offset-md-2">
     <h3>Edit listing</h3>
     <br />
     <br />
@@ -45,7 +45,7 @@
         <input type="file" class="form-control" name="listing[image]" />
       </div>
       <div class="row">
-        <div class="mb-3 col-md-4">
+        <div class="mb-3 col-4">
           <label for="price" class="form-label">Price</label>
           <input
             value="<%= listing.price %>"
@@ -56,7 +56,7 @@
           <div class="invalid-feedback">Price should be valid</div>
         </div>
 
-        <div class="mb-3 col-md-8">
+        <div class="mb-3 col-8">
           <label for="country" class="form-label">Country</label>
           <input
             type="text"
@@ -84,5 +84,4 @@
       <button class="btn btn-dark edit-btn">Edit</button>
     </form>
   </div>
-  <br />
 </body>
