@@ -18,6 +18,23 @@
     border-radius: 25px;
     padding: 0.5rem 3rem 0.5rem 3rem;
   }
+  .navbar-collapse {
+    background-color: white; /* Add a background color for better visibility */
+    z-index: 1050; /* Ensure it stacks above other content */
+    position: relative; /* Ensures proper stacking */
+    padding: 1rem; /* Adds spacing for better usability */
+  }
+
+  @media (max-width: 600px) {
+    .navbar-collapse {
+      position: absolute; /* Keeps it positioned properly */
+      width: 100%; /* Ensures it spans the full width */
+      top: 65px; /* Adjust based on your navbar height */
+    }
+    .search {
+      display: none;
+    }
+  }
 </style>
 
 <nav class="navbar navbar-expand-lg bg-body-light border-bottom sticky-top">
@@ -25,6 +42,9 @@
     <a class="navbar-brand" href="/listings"
       ><i class="fa-regular fa-compass"></i
     ></a>
+    <div class="navbar-nav explore" style="margin-right: 12rem">
+      <a class="nav-link" href="/listings">Explore</a>
+    </div>
     <button
       class="navbar-toggler"
       type="button"
@@ -36,11 +56,8 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link" href="/listings">Explore</a>
-      </div>
 
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="search navbar-nav ms-auto">
         <form class="d-flex" role="search">
           <input

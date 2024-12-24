@@ -2,8 +2,9 @@
 <style>
   #filters {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     /* align-items: center; */
+    
   }
   .filter {
     text-align: center;
@@ -13,6 +14,7 @@
   .filter:hover {
     opacity: 1;
     cursor: pointer;
+
   }
   .filter p {
     font-size: 0.8rem;
@@ -40,17 +42,35 @@
   font-size: 0.9rem;
 }
 
+
+/* fvdvcvc */
+
+.filter-container {
+  overflow-x: auto; /* Enable horizontal scrolling */
+  white-space: nowrap; /* Prevent wrapping of filters */
+}
+
+.all-Listings{
+  margin-top: 1rem;
+}
+
+@media (max-width: 500px) {
+  .filter-container {
+    display: block; /* Show scrolling on small screens */
+    padding: 5px;
+  }
+}
 </style>
 
+<div class="filter-container">
 
  <div id="filters">
-     
      <div class="filter">
        <div><a href="/filter?Category=rooms" ><i class="fa-solid fa-bed"></i></div>
        <p>Rooms</p></a>
      </div>
      <div class="filter">
-       <div><a href="/filter?Category=iconic cities"><i class="fa-solid fa-city"></i></div>
+       <div><a href="/filter?Category=iconic city"><i class="fa-solid fa-city"></i></div>
        <p>Iconic Cities</p></a>
      </div>
     <div class="filter">
@@ -58,11 +78,11 @@
        <p>Mountains</p></a>
       </div>   
      <div class="filter">
-       <div><a href="/filter?Category=beachs"><i class="fa-solid fa-umbrella-beach"></i></div>
+       <div><a href="/filter?Category=beach"><i class="fa-solid fa-umbrella-beach"></i></div>
        <p>Beachs</p></a>
      </div>
      <div class="filter">
-       <div><a href="/filter?Category=amazing pools"><i class="fa-solid fa-person-swimming"></i></div>
+       <div><a href="/filter?Category=amazing pool"><i class="fa-solid fa-person-swimming"></i></div>
        <p>Amazing Pools</p></a>
      </div>
      <div class="filter">
@@ -70,7 +90,7 @@
        <p>Camping</p></a>
      </div>
      <div class="filter">
-       <div><a href="/filter?Category=farms"><i class="fa-solid fa-cow"></i></div>
+       <div><a href="/filter?Category=farm"><i class="fa-solid fa-cow"></i></div>
        <p>Farms</p></a>
      </div>
      <div class="filter">
@@ -92,10 +112,11 @@
          <label class="form-check-label" for="flexSwitchCheckDefault">Dispaly total after taxes</label>
        </div>
      </div>
-  </div>
- 
+ </div>     <!--end of filters -->
+ </div>  <!--end of filter-conainer -->
 
-  <div class="row  row-cols-lg-3 row-cols-md-3 row-cols-1  ">
+
+  <div class="row  row-cols-lg-3 row-cols-md-3 row-cols-1 all-Listings  ">
     <% for(let listing of allData) { %>
     <a href="/listings/<%= listing.id %>" class="card-link">
       <div class="card listingCard col-10 offset-md-0 offset-1  col-md-12">

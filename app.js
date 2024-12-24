@@ -92,7 +92,6 @@ app.use((req, res, next) => {
 
 app.get("/filter", async (req, res) => {
   let { Category } = req.query;
-  console.log(req.query);
   let allListings = await Listing.find();
   res.render("listing/filter.ejs", { allListings, Category });
 });
