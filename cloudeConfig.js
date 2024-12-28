@@ -12,7 +12,7 @@ const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
     folder: "stayease_DEv", //folder at cloudinary storage
-    allowedFormates: ["jpg", "png", "jpeg"], // supports promises as well
+    allowedFormates: ["jpg", "png", "jpeg", "heic"], // supports promises as well
   },
 });
 
